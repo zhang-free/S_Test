@@ -33,7 +33,7 @@ __copyright__ = "Copyright 2010-2018 University of Liège, Belgium, http://www.c
 
 
 def find_components(image):
-    contours, hierarchy = cv2.findContours(image, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    _, contours, hierarchy = cv2.findContours(image, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
     components = []
     if len(contours) > 0:
@@ -69,7 +69,7 @@ def find_components(image):
 
 
 def main(argv):
-    print(argv)
+
     with CytomineJob.from_cli(argv) as cj:
 
         images = ImageInstanceCollection().fetch_with_filter("project", cj.parameters.cytomine_id_project)
@@ -134,5 +134,5 @@ def main(argv):
 if __name__ == "__main__":
     import sys
 
-    main(sys.argv[1:])
+    main(['--cytomine_host', 'localhost-core', '--cytomine_public_key', '8425d23e-96e0-4c62-a1bd-b530277897f9', '--cytomine_private_key', '6f085b4b-573b-48bd-8c3d-4d2c9f4f517c', '--cytomine_id_project', '28514', '--cytomine_id_software', '25324', '--cytomine_id_predicted_term', '2259', '--max_image_size', '2048', '--threshold_blocksize', '951', '--threshold_constant', '5', '--erode_iterations', '3', '--dilate_iterations', '3'])
 

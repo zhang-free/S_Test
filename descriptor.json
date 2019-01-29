@@ -2,7 +2,7 @@
   "name": "Test",
   "description": "JUST A TEST",
   "container-image": {
-    "image": "zhang-free/s_test",
+    "image": "zhangpenghui/s_test",
     "index": "docker://",
     "type": "singularity"
   },
